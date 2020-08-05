@@ -114,3 +114,57 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(articleObj){
+    const article = document.createElement('div')
+    const articleTitle = document.createElement('h2')
+    const articleDate= document.createElement('p')
+    const articleP1 = document.createElement('p')
+    const articleP2 = document.createElement('p')
+    const articleP3 = document.createElement('p')
+    const expandButton = document.createElement('span')
+
+    article.appendChild(articleTitle)
+    article.appendChild(articleDate)
+    article.appendChild(articleP1)
+    article.appendChild(articleP2)
+    article.appendChild(articleP3)
+    article.appendChild(expandButton)
+
+    article.classList.add('article')
+    articleDate.classList.add('date')
+    expandButton.classList.add('expandButton')
+
+    articleTitle.textContent = articleObj.title
+    articleDate.textContent = articleObj.date
+    articleP1.textContent = articleObj.firstParagraph
+    articleP2.textContent = articleObj.secondParagraph
+    articleP3.textContent = articleObj.thirdParagraph
+    expandButton.textContent = "+"
+
+    expandButton.addEventListener('click', evt => {
+      article.classList.toggle('article-open')
+    })
+
+    
+
+    return article
+}
+
+const articles = document.querySelector('.articles')
+
+data.forEach(articleObject =>{
+  const newArticle = articleMaker(articleObject)
+  articles.appendChild(newArticle)
+})
+
+const myArticle = articleMaker({
+  title: 'About Somayah', 
+  date: 'Aug 5, 2020',
+  firstParagraph: 'I live in NYC',
+  secondParagraph: 'I am a web dev student',
+  thirdParagraph: 'I am passionate about education',
+})
+
+articles.appendChild(myArticle)
+
