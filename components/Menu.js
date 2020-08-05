@@ -54,6 +54,10 @@ function menuMaker(menuItems){
   return menu
 }
 
+// menuItems.push('Gossip')
+
+
+
 const menu = menuMaker(menuItems)
 const header = document.querySelector('.header')
 

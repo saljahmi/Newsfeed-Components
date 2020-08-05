@@ -146,6 +146,8 @@ function articleMaker(articleObj){
       article.classList.toggle('article-open')
     })
 
+    
+
     return article
 }
 
@@ -165,3 +167,4 @@ const myArticle = articleMaker({
 })
 
 articles.appendChild(myArticle)
+
